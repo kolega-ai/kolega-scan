@@ -1,0 +1,17 @@
+# Gitleaks config. Extends the default rule set and allowlists the deliberately
+# planted secrets used as scanner bait in the demo app and test fixtures.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Intentionally-planted example secrets (scanner test vectors, not real credentials)"
+paths = [
+  '''demo/.*''',
+  '''tests/fixtures/.*''',
+]
+regexes = [
+  # AWS's own documented example key
+  '''AKIAIOSFODNN7EXAMPLE''',
+  '''sk-abcdef1234567890''',
+  '''hunter2-long-enough''',
+]

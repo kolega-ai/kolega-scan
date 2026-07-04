@@ -1,0 +1,135 @@
+{
+  "cli": {
+    "import-published-gt": [
+      "force",
+      "realvuln_path",
+      "yes"
+    ],
+    "scan": [
+      "clusters",
+      "config_path",
+      "detectors",
+      "out",
+      "quiet",
+      "recon",
+      "repo_path",
+      "scanner",
+      "verbose"
+    ],
+    "validate-gt": [
+      "gt_path"
+    ]
+  },
+  "entry_point_group": "kolega_security_scanner.detectors",
+  "exit_codes": {
+    "EXIT_DOMAIN_FAILURE": 1,
+    "EXIT_INTERNAL_ERROR": 10,
+    "EXIT_SUCCESS": 0,
+    "EXIT_USAGE_ERROR": 2
+  },
+  "package_version": "0.1.0",
+  "python": {
+    "kolega_security_scanner": {
+      "AgentResult": "class",
+      "BaseDetector": "class",
+      "DetectionClass": "class",
+      "Detector": "class",
+      "DetectorContext": "class",
+      "DetectorDiscoveryError": "class",
+      "DetectorError": "class",
+      "DetectorRegistry": "class",
+      "EXIT_DOMAIN_FAILURE": "value",
+      "EXIT_INTERNAL_ERROR": "value",
+      "EXIT_SUCCESS": "value",
+      "EXIT_USAGE_ERROR": "value",
+      "EndpointRecon": "class",
+      "Finding": "class",
+      "FindingExtra": "class",
+      "FindingMetadata": "class",
+      "FindingMetadataKolega": "class",
+      "GtImportError": "class",
+      "KolegaScannerError": "class",
+      "LLMClient": "class",
+      "LLMConfigError": "class",
+      "ProviderDiscoveryError": "class",
+      "ProviderRegistry": "class",
+      "ReconResult": "class",
+      "ScanConfig": "class",
+      "ScanError": "class",
+      "ScanProvider": "class",
+      "ScanResult": "class",
+      "ScanTarget": "class",
+      "SliceCycleError": "class",
+      "SliceReferenceError": "class",
+      "StartOrEnd": "class",
+      "UsageError": "class",
+      "ValidationError": "class",
+      "build_recon": "def(target: 'ScanTarget | Path', llm: 'LLMClient | None', *, use_cache: 'bool' = True) -> 'ReconResult'",
+      "default_provider_registry": "def(*, include_entry_points: 'bool' = True) -> 'ProviderRegistry'",
+      "default_registry": "def(*, include_entry_points: 'bool' = True) -> 'DetectorRegistry'",
+      "resolve_slice": "def(name: 'str', slices_dir: 'str | Path') -> 'list[str]'",
+      "scan": "def(config: 'ScanConfig', registry: 'DetectorRegistry', llm: 'LLMClient | None' = None) -> 'ScanResult'",
+      "validate_gt_dir": "def(path: 'str | Path') -> 'list[GtValidationResult]'",
+      "validate_gt_file": "def(path: 'str | Path') -> 'None'"
+    },
+    "kolega_security_scanner.cli._errors": {
+      "DetectorDiscoveryError": "class",
+      "DetectorError": "class",
+      "GtImportError": "class",
+      "KolegaScannerError": "class",
+      "LLMConfigError": "class",
+      "ProviderDiscoveryError": "class",
+      "ScanError": "class",
+      "SliceCycleError": "class",
+      "SliceReferenceError": "class",
+      "UsageError": "class",
+      "ValidationError": "class"
+    },
+    "kolega_security_scanner.cli._exit_codes": {
+      "EXIT_DOMAIN_FAILURE": "value",
+      "EXIT_INTERNAL_ERROR": "value",
+      "EXIT_SUCCESS": "value",
+      "EXIT_USAGE_ERROR": "value"
+    },
+    "kolega_security_scanner.detectors.base": {},
+    "kolega_security_scanner.detectors.registry": {},
+    "kolega_security_scanner.groundtruth.slices": {},
+    "kolega_security_scanner.groundtruth.validator": {},
+    "kolega_security_scanner.llm.client": {
+      "AgentResult": "class",
+      "LLMClient": "class",
+      "build_llm_client": "def(env_var: 'str' = 'LITELLM_API_KEY') -> 'LLMClient'",
+      "build_llm_client_for_model": "def(model: 'str', env_var: 'str' = 'LITELLM_API_KEY') -> 'LLMClient'",
+      "resolve_api_key": "def(env_var: 'str') -> 'str'"
+    },
+    "kolega_security_scanner.scanner.config": {
+      "ScanConfig": "class"
+    },
+    "kolega_security_scanner.scanner.engine": {
+      "scan": "def(config: 'ScanConfig', registry: 'DetectorRegistry', llm: 'LLMClient | None' = None) -> 'ScanResult'"
+    },
+    "kolega_security_scanner.scanner.models": {
+      "DetectorContext": "class",
+      "DetectorRunError": "class",
+      "ScanResult": "class",
+      "ScanTarget": "class",
+      "SourceFile": "class"
+    },
+    "kolega_security_scanner.scanner.providers": {
+      "DEFAULT_PROVIDER": "value",
+      "DETECTORS_PROVIDER": "value",
+      "DetectorScanProvider": "class",
+      "ENTRY_POINT_GROUP": "value",
+      "ProviderRegistry": "class",
+      "ScanProvider": "class",
+      "default_provider_registry": "def(*, include_entry_points: 'bool' = True) -> 'ProviderRegistry'"
+    },
+    "kolega_security_scanner.schema.finding": {}
+  },
+  "scanner_entry_point_group": "kolega_security_scanner.scanners",
+  "schema_ids": [
+    "kolega-scan/finding/v1.0.0",
+    "kolega-scan/ground-truth/v1.0.0",
+    "kolega-scan/slice/v1.0.0"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "repo_id": "realvuln-bravo-llm-py",
+  "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "language": "python",
+  "framework": null,
+  "authorship": "llm_generated",
+  "findings": [
+    {
+      "id": "f1",
+      "file": "app/login.py",
+      "location": {
+        "start_line": 11,
+        "end_line": 13,
+        "function": "handler"
+      },
+      "primary_cwe": "CWE-89",
+      "acceptable_cwes": [
+        "CWE-89"
+      ],
+      "is_vulnerable": true,
+      "severity": "high",
+      "evidence": {
+        "source": "manual_review",
+        "description": "User input reaches a dangerous sink without sanitization."
+      }
+    },
+    {
+      "id": "f2",
+      "file": "app/login.py",
+      "location": {
+        "start_line": 12,
+        "end_line": 14,
+        "function": "handler"
+      },
+      "primary_cwe": "CWE-89",
+      "acceptable_cwes": [
+        "CWE-89"
+      ],
+      "is_vulnerable": false,
+      "severity": "high",
+      "evidence": {
+        "source": "manual_review",
+        "description": "User input reaches a dangerous sink without sanitization."
+      }
+    }
+  ]
+}

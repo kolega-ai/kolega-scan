@@ -1,0 +1,4 @@
+# Cloned target repos are local-only; keep the drop-zone, ignore contents.
+*
+!.gitkeep
+!.gitignore

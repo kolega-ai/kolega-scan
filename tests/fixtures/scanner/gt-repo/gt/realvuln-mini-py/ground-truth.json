@@ -1,0 +1,29 @@
+{
+  "repo_id": "realvuln-mini-py",
+  "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "language": "python",
+  "framework": "flask",
+  "authorship": "human_authored",
+  "findings": [
+    {
+      "id": "mp-1",
+      "file": "app.py",
+      "location": {
+        "start_line": 10,
+        "end_line": 10,
+        "function": "ping"
+      },
+      "primary_cwe": "CWE-78",
+      "acceptable_cwes": [
+        "CWE-78"
+      ],
+      "is_vulnerable": true,
+      "severity": "high",
+      "cluster_id": "example_command_injection",
+      "evidence": {
+        "source": "manual_review",
+        "description": "user input reaches os.system"
+      }
+    }
+  ]
+}

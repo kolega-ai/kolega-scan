@@ -1,0 +1,27 @@
+{
+  "path": "app/routes/login.py",
+  "check_id": "kolega.sql_string_interpolation_in_execute",
+  "start": {
+    "line": 42,
+    "col": 12
+  },
+  "end": {
+    "line": 42,
+    "col": 84
+  },
+  "extra": {
+    "message": "User-controlled value reaches cursor.execute() via string interpolation.",
+    "severity": "high",
+    "metadata": {
+      "cwe": [
+        "CWE-89"
+      ],
+      "kolega": {
+        "cluster_id": "sql_string_interpolation_in_execute",
+        "root_key": "app/db/login.py:42:UserModel.find",
+        "detector_slug": "ref-sql-r2-h2-targeted-recall",
+        "confidence": "high"
+      }
+    }
+  }
+}

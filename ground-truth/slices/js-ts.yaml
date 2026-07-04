@@ -1,0 +1,15 @@
+repos:
+  - realvuln-dvna
+  - realvuln-dvws-node
+  - realvuln-ninjasworkout
+  - realvuln-nodegoat
+  - realvuln-oss-oopssec-store
+  - realvuln-react-security
+  - realvuln-react-suspended
+  - realvuln-react-test-bench
+  - realvuln-reactvulna
+  - realvuln-simply-vulnerable-react
+  - realvuln-vuln-node-express
+  - realvuln-vulnerable-node
+  - realvuln-vulnerable-nodejs
+  - realvuln-vulnnodeapp

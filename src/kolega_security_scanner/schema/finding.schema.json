@@ -1,0 +1,199 @@
+{
+  "$defs": {
+    "FindingExtra": {
+      "additionalProperties": false,
+      "description": "The Semgrep ``extra`` envelope: message, severity, metadata.",
+      "properties": {
+        "message": {
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/$defs/FindingMetadata"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "info"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "severity",
+        "metadata"
+      ],
+      "title": "FindingExtra",
+      "type": "object"
+    },
+    "FindingMetadata": {
+      "additionalProperties": false,
+      "description": "Finding metadata: required CWE list plus optional Kolega extension.",
+      "properties": {
+        "cwe": {
+          "items": {
+            "pattern": "^CWE-\\d+$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Cwe",
+          "type": "array"
+        },
+        "kolega": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FindingMetadataKolega"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "cwe"
+      ],
+      "title": "FindingMetadata",
+      "type": "object"
+    },
+    "FindingMetadataKolega": {
+      "additionalProperties": false,
+      "description": "Kolega-specific finding metadata. Every sub-field is optional.",
+      "properties": {
+        "cluster_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cluster Id"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence"
+        },
+        "detector_slug": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z0-9][a-z0-9-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Detector Slug"
+        },
+        "root_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Root Key"
+        }
+      },
+      "title": "FindingMetadataKolega",
+      "type": "object"
+    },
+    "StartOrEnd": {
+      "additionalProperties": false,
+      "description": "A source position: 1-based line and optional 1-based column.",
+      "properties": {
+        "col": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Col"
+        },
+        "line": {
+          "minimum": 1,
+          "title": "Line",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "line"
+      ],
+      "title": "StartOrEnd",
+      "type": "object"
+    }
+  },
+  "$id": "kolega-scan/finding/v1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A single scanner finding in Semgrep-JSON-compatible wire format.",
+  "properties": {
+    "check_id": {
+      "minLength": 1,
+      "title": "Check Id",
+      "type": "string"
+    },
+    "end": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/StartOrEnd"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "extra": {
+      "$ref": "#/$defs/FindingExtra"
+    },
+    "path": {
+      "minLength": 1,
+      "title": "Path",
+      "type": "string"
+    },
+    "start": {
+      "$ref": "#/$defs/StartOrEnd"
+    }
+  },
+  "required": [
+    "path",
+    "check_id",
+    "start",
+    "extra"
+  ],
+  "title": "Finding",
+  "type": "object"
+}

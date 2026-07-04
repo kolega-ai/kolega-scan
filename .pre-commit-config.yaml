@@ -1,0 +1,19 @@
+# Pre-commit hooks: ruff (lint + format) and gitleaks (secret scan).
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.7
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: changelog
+        name: CHANGELOG [Unreleased] bullet for user-visible changes
+        entry: python scripts/check_changelog.py
+        language: system
+        pass_filenames: false
