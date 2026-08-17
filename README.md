@@ -1,7 +1,7 @@
 # kolega-scan
 
 [![CI](https://github.com/kolega-ai/kolega-scan/actions/workflows/ci.yml/badge.svg)](https://github.com/kolega-ai/kolega-scan/actions/workflows/ci.yml)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![License: BSL 1.1](https://img.shields.io/badge/License-BSL_1.1-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue.svg)](pyproject.toml)
 
 LLM-assisted security scanner (SAST). Point it at a directory; get back structured,
@@ -88,4 +88,10 @@ key, and picks up an LLM opportunistically when one is configured. See
 
 ## License
 
-[Apache License 2.0](LICENSE). Copyright 2026 Kolega.
+[Business Source License 1.1](LICENSE). Copyright 2026 KLG Tech Innovations Limited.
+
+Not an open-source license today. You may use kolega-scan in production, including on
+your own, your employer's, or your clients' code — the one thing the Additional Use
+Grant excludes is offering it to third parties on a hosted or embedded basis as a
+competitive paid offering. On the Change Date (2030-08-12) each version converts to
+AGPL-3.0-or-later. See [LICENSE](LICENSE) for the terms that control.
